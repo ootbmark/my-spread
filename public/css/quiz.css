@@ -1,0 +1,535 @@
+.quiz {
+    padding: 0 0 100px;
+    background-color: #f0f1f6;
+    min-height: calc(100vh - 493px);
+}
+
+.quiz h1 {
+    font-size: 50px;
+    letter-spacing: 1.5px;
+    color: #292929;
+    margin: 40px auto 15px;
+    max-width: 1200px;
+    padding: 0 20px
+}
+
+@media (max-width: 767px) {
+    .quiz h1 {
+        margin: 30px auto 15px;
+        font-size: 30px
+    }
+}
+
+.quiz h2 {
+    font-size: 25px;
+    letter-spacing: .6px;
+    color: #292929;
+    max-width: 1200px;
+    margin: 0 auto 23px;
+    padding: 0 20px
+}
+
+@media (max-width: 767px) {
+    .quiz h2 {
+        font-size: 16px
+    }
+}
+
+.quiz .btn-blue {
+    letter-spacing: .75px;
+    font-size: 25px
+}
+
+.quiz-container {
+    max-width: 1278px;
+    margin: 0 auto;
+    padding: 0 20px
+}
+
+@media (max-width: 767px) {
+    .quiz-container {
+        padding: 0 15px
+    }
+}
+
+.quiz-block {
+    background-color: #fff;
+    margin-bottom: 13px;
+    padding: 27px 15px 30px 74px;
+    border-radius: 2px;
+    border: 1px solid #f0f1f6
+}
+
+@media (max-width: 767px) {
+    .quiz-block {
+        padding: 20px 15px
+    }
+}
+
+.quiz-title {
+    font-size: 20px;
+    margin-bottom: 23px;
+    display: block
+}
+
+.custom-control {
+    margin-bottom: 22px;
+    padding-left: 40px
+}
+
+.custom-control-label {
+    font-size: 16px
+}
+
+.custom-control-input {
+    width: 23px;
+    height: 23px
+}
+
+.custom-control-label:after, .custom-control-label:before {
+    width: 23px;
+    height: 23px;
+    left: -40px;
+    top: 0
+}
+
+.custom-control-input:checked ~ .custom-control-label:before {
+    color: #fff;
+    border-color: var(--color-2);
+    background-color: var(--color-2)
+}
+
+.custom-control-input:focus ~ .custom-control-label:before {
+    box-shadow: none
+}
+
+.custom-select {
+    min-height: 45px;
+    max-width: 744px
+}
+
+.checkbox-image {
+    padding-left: 0;
+    margin-right: 22px;
+    margin-left: 22px
+}
+
+.checkbox-image .custom-control-label {
+    width: 186px;
+    height: 143px
+}
+
+.checkbox-image .custom-control-label img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    -o-object-fit: cover;
+    object-fit: cover
+}
+
+.checkbox-image .custom-control-label:before {
+    bottom: 9px;
+    right: 11px;
+    left: inherit;
+    z-index: 1;
+    top: inherit;
+    width: 19px;
+    height: 19px
+}
+
+.checkbox-image .custom-control-label.custom-radio:before {
+    border-radius: 2px
+}
+
+.checkbox-image .custom-control-label:after {
+    left: inherit;
+    bottom: 7px;
+    right: 9px;
+    z-index: 1;
+    top: auto
+}
+
+
+
+.custom-select:focus {
+    border-color: var(--color-2);
+    box-shadow: none
+}
+
+.checkbox-image-container {
+    margin-left: -22px;
+    margin-right: -22px
+}
+
+.form-control {
+    max-width: 744px;
+    min-height: 45px
+}
+
+.select2-container--default .select2-selection--multiple {
+    border: 1px solid #f0f1f6;
+    min-height: 45px;
+    max-width: 744px
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border-color: var(--color-2)
+}
+
+.quiz-time {
+    display: flex;
+    margin: 0 auto 20px;
+    justify-content: center;
+    font-size: 32px;
+    letter-spacing: .96px;
+    color: #244199
+}
+
+.quiz-index {
+    background-color: #f0f1f6;
+    padding: 59px 30px
+}
+
+@media (max-width: 575px) {
+    .quiz-index {
+        padding: 40px 20px
+    }
+}
+
+.quiz-index h1 {
+    font-size: 25px;
+    margin-bottom: 54px;
+    letter-spacing: .8px
+}
+
+.quiz-index-container {
+    max-width: 1162px;
+    margin: 0 auto
+}
+
+@media (max-width: 991px) {
+    .quiz-index-container {
+        max-width: 565px
+    }
+}
+
+.quiz-index-item {
+    width: 48.7%;
+    padding: 23px 20px 30px;
+    background-color: #fff;
+    margin-bottom: 30px;
+    border-left: 6px solid rgba(44, 28, 105, .7098039215686275);
+    border-radius: 0 10px 10px 0
+}
+
+@media (max-width: 991px) {
+    .quiz-index-item {
+        width: 100%
+    }
+}
+
+@media (max-width: 575px) {
+    .quiz-index-item {
+        padding: 20px 15px
+    }
+
+    .quiz-index-item .d-flex img {
+        width: 40px
+    }
+}
+
+.quiz-index-item h6 {
+    font-size: 18px;
+    color: #000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+@media (max-width: 575px) {
+    .quiz-index-item h6 {
+        font-size: 16px;
+        white-space: normal
+    }
+}
+
+.quiz-index-item p {
+    color: #8a8a8a;
+    font-size: 14px;
+    letter-spacing: .45px;
+    margin-bottom: 24px
+}
+
+@media (max-width: 575px) {
+    .quiz-index-item p {
+        font-size: 13px;
+        letter-spacing: .2px
+    }
+}
+
+.quiz-index-item .btn {
+    padding: .6em 1.5em
+}
+
+@media (max-width: 575px) {
+    .quiz-index-item .btn {
+        font-size: 13px
+    }
+}
+
+
+
+
+.custom-radio input[type=radio] {
+    display: none!important;
+    *display: inline
+}
+
+.custom-radio input[type=radio]:checked+label:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #b7b7b7
+}
+.quiz-checkbox-name{
+    margin-bottom: 5px;
+}
+.custom-radio input[type=radio]+label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 30px;
+    margin-right: 15px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.custom-radio input[type=radio]+label:before {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 22px;
+    margin-right: 14px;
+    position: absolute;
+    top: -3px;
+    left: 0;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    border-radius: 50%
+}
+
+.custom-radio input[type=radio].radio-high:checked+label:after {
+    background: #e53f3c
+}
+
+.custom-radio input[type=radio].radio-medium:checked+label:after {
+    background: #e88a4e
+}
+
+.custom-radio input[type=radio].radio-low:checked+label:after {
+    background: #36d764
+}
+
+.dropdown-item {
+    color: #000!important
+}
+
+.hard-color {
+    color: #e53f3c
+}
+
+.medium-color {
+    color: #d77736
+}
+
+.low-color {
+    color: #25d559
+}
+.custom-control-input:checked~.custom-control-label:before {
+    color: #fff;
+    border-color: #110b42;
+    background-color: #110b42;
+}
+
+
+
+
+.datepicker.datepicker-orient-top {
+    margin-top: 8px;
+
+}
+.datepicker{
+    padding: 15px;
+}
+.datepicker table {
+    width: 100%
+}
+
+.datepicker td,.datepicker th {
+    font-size: 1rem;
+    font-weight: regular;
+    width: 33px;
+    height: 33px;
+    border-radius: .42rem
+}
+
+.datepicker thead th {
+    color: #3f4254
+}
+
+.datepicker thead th.datepicker-switch,.datepicker thead th.next,.datepicker thead th.prev {
+    font-weight: 500;
+    color: #3f4254;
+    text-align: center;
+}
+
+.datepicker thead th.datepicker-switch i,.datepicker thead th.next i,.datepicker thead th.prev i {
+    font-size: 1.2rem;
+    color: #7e8299
+}
+
+.datepicker thead th.datepicker-switch i:before,.datepicker thead th.next i:before,.datepicker thead th.prev i:before {
+    line-height: 0;
+    vertical-align: middle
+}
+
+.datepicker thead th.datepicker-switch:hover,.datepicker thead th.next:hover,.datepicker thead th.prev:hover {
+    background: #f3f6f9!important
+}
+
+.datepicker thead th.dow {
+    color: #3f4254;
+    font-weight: 600
+}
+
+.datepicker tbody tr>td {
+    width: 35px;
+    height: 35px
+}
+
+.datepicker tbody tr>td.day {
+    color: #7e8299;
+    font-weight: 400;
+    text-align: center;
+}
+
+.datepicker tbody tr>td.day:hover {
+    background: #f3f6f9;
+    color: #3f4254
+}
+
+.datepicker tbody tr>td.day.old {
+    color: #7e8299
+}
+
+.datepicker tbody tr>td.day.new {
+    color: #3f4254
+}
+
+.datepicker tbody tr>td.day.active,.datepicker tbody tr>td.day.active:hover,.datepicker tbody tr>td.day.selected,.datepicker tbody tr>td.day.selected:hover {
+    background: #3699ff;
+    color: #fff
+}
+
+.datepicker tbody tr>td.day.today {
+    position: relative;
+    background: #e1f0ff!important;
+    color: #3699ff!important
+}
+
+.datepicker tbody tr>td.day.today:before {
+    content: "";
+    display: inline-block;
+    border-color: #3699ff transparent;
+    border-style: solid;
+    border-width: 0 0 7px 7px;
+    position: absolute;
+    bottom: 4px;
+    right: 4px
+}
+
+.datepicker tbody tr>td.day.range {
+    background: #f3f6f9
+}
+
+.datepicker tbody tr>td span.hour,.datepicker tbody tr>td span.minute,.datepicker tbody tr>td span.month,.datepicker tbody tr>td span.year {
+    color: #7e8299
+}
+
+.datepicker tbody tr>td span.hour:hover,.datepicker tbody tr>td span.minute:hover,.datepicker tbody tr>td span.month:hover,.datepicker tbody tr>td span.year:hover {
+    background: #f3f6f9
+}
+
+.datepicker tbody tr>td span.hour.active,.datepicker tbody tr>td span.hour.active.focused:hover,.datepicker tbody tr>td span.hour.active:hover,.datepicker tbody tr>td span.hour.focused,.datepicker tbody tr>td span.hour.focused:hover,.datepicker tbody tr>td span.minute.active,.datepicker tbody tr>td span.minute.active.focused:hover,.datepicker tbody tr>td span.minute.active:hover,.datepicker tbody tr>td span.minute.focused,.datepicker tbody tr>td span.minute.focused:hover,.datepicker tbody tr>td span.month.active,.datepicker tbody tr>td span.month.active.focused:hover,.datepicker tbody tr>td span.month.active:hover,.datepicker tbody tr>td span.month.focused,.datepicker tbody tr>td span.month.focused:hover,.datepicker tbody tr>td span.year.active,.datepicker tbody tr>td span.year.active.focused:hover,.datepicker tbody tr>td span.year.active:hover,.datepicker tbody tr>td span.year.focused,.datepicker tbody tr>td span.year.focused:hover {
+    background: #3699ff;
+    color: #fff
+}
+
+.datepicker tfoot tr>th {
+    width: 35px;
+    height: 35px
+}
+
+.datepicker tfoot tr>th.clear,.datepicker tfoot tr>th.today {
+    border-radius: .42rem;
+    font-weight: 500
+}
+
+.datepicker tfoot tr>th.clear:hover,.datepicker tfoot tr>th.today:hover {
+    background: #ebedf3
+}
+
+.datepicker.datepicker-inline {
+    border: 1px solid #ebedf3
+}
+
+
+.quiz-ipt-each {
+    padding: 9px 20px;
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid #f0f1f6;
+    display: block;
+    margin-bottom: 10px
+}
+
+.quiz-ipt-each:focus {
+    outline: none;
+    border: 1px solid #2b2929
+}
+
+.quiz-ipt-each::-moz-placeholder {
+    color: #8d8d8d
+}
+
+.quiz-ipt-each:-ms-input-placeholder {
+    color: #8d8d8d
+}
+
+.quiz-ipt-each::placeholder {
+    color: #8d8d8d
+}
+
+.quiz-ipt-left,.quiz-ipt-right {
+    flex: 0 0 50%;
+    width: 50%
+}
+
+.quiz-ipt-right {
+    padding-left: 20px
+}
+
+.quiz-ipt-no {
+    max-width: 300px
+}
+.modal-content img{
+    max-width: 100%;
+}
