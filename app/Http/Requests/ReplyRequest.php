@@ -26,7 +26,7 @@ class ReplyRequest extends FormRequest
     public function rules()
     {
         $rules =  [
-            'body' => ['required', new DetectSpamKeywords()],
+            'body' => 'required',
             'location' => 'required|string|max:255',
             'g-recaptcha-response' => 'required|captcha',
         ];

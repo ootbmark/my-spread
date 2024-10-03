@@ -13,7 +13,9 @@ use App\Models\Group;
 use App\Models\Organisation;
 use App\Models\Reply;
 use App\Models\Thread;
+use App\Models\ThreadSpan;
 use App\Models\User;
+use App\Rules\DetectSpamKeywords;
 use App\Services\FileService;
 use App\Services\SaveFiles\SaveFilesFromRequestService;
 use App\Services\SeoService;
@@ -106,27 +108,33 @@ class DiscussionController extends Controller
      */
     public function show($id)
     {
-        $thread = Thread::findOrFail($id);
-        SeoService::setPageMeta('discussion', $thread);
-        $users = User::active()->get();
-        $categories = Category::all();
-        $replies = $thread->replies()->with(['replies' => function ($q) {
-            return $q->active();
-        }, 'user', 'replies.user'])
-            ->whereNull('parent_id')->active()
-            ->orderby('id', 'desc')->get();
-        $related_threads = Thread::where('id', '!=', $id)
-            ->active()->where('group_id', $thread->group_id)
-            ->take(5)->get();
-        $reply = Reply::find(\request()->get('reply_id'));
-        return view('discussions.show', compact(
-            'thread',
-            'users',
-            'categories',
-            'replies',
-            'related_threads',
-            'reply'
-        ));
+        $thread = Thread::where('id', $id)->where('status', 'deleted')->first();
+        if ($thread) {
+            $thread = Thread::findOrFail($id);
+            SeoService::setPageMeta('discussion', $thread);
+            $users = User::active()->get();
+            $categories = Category::all();
+            $replies = $thread->replies()->with(['replies' => function ($q) {
+                return $q->active();
+            }, 'user', 'replies.user'])
+                ->whereNull('parent_id')->active()
+                ->orderby('id', 'desc')->get();
+            $related_threads = Thread::where('id', '!=', $id)
+                ->active()->where('group_id', $thread->group_id)
+                ->take(5)->get();
+            $reply = Reply::find(\request()->get('reply_id'));
+            return view('discussions.show', compact(
+                'thread',
+                'users',
+                'categories',
+                'replies',
+                'related_threads',
+                'reply'
+            ));
+        } else {
+            flash()->success('The discussion has already been deleted');
+            return back();
+        }
     }
 
 
@@ -230,33 +238,57 @@ class DiscussionController extends Controller
      */
     public function store(ThreadRequest $request)
     {
-        $data = $request->all();
-        if (Auth::user()->role != 'admin') {
-            $data['user_id'] = Auth::id();
-        }
+        $spamRule = new DetectSpamKeywords();
+        if (!$spamRule->passes('body', $request->body)) {
+            $data = $request->all();
+            if (Auth::user()->role != 'admin') {
+                $data['user_id'] = Auth::id();
+            }
 
-        $data['status'] = 'new';
-        if ($request->get('submit') == 'preview') {
-            $data['status'] = 'preview';
-        }
-        $data['activity_date'] = now();
-        $data['body'] = m_nofollow($data['body']);
-        $thread = Thread::create($data);
-        $this->getFilesSaver()->save($request, $thread);
-        if ($thread->status == 'preview') {
-            return redirect()->route('discussions.preview', $thread->id);
-        }
+            $data['status'] = 'new';
+            if ($request->get('submit') == 'preview') {
+                $data['status'] = 'preview';
+            }
+            $data['body'] = m_nofollow($data['body']);
+            $thread = ThreadSpan::create($data);
 
-        $share_service = new ShareService();
-        $share_service->linkedin($thread);
+            $subject = 'Spam Discussion has detected';
+            Mail::send('emails.new_thread', ['thread' => $thread], function ($mail) use ($subject) {
+                $mail->to('mark@oobtinnovations.com')->subject($subject);
+            });
 
-        $subject = 'A new discussion has been posted on My-Spread';
-        Mail::send('emails.new_thread', ['thread' => $thread], function ($m) use ($subject) {
-            $m->to(config('mail.notifications'))->subject($subject);
-        });
-        flash()->success('Thanks. You have added a new discussion to My-Spread');
-        return redirect()->route('discussions.show', $thread->id);
+            flash()->success('Thanks. You have added a new discussion to My-Spread');
+            return back();
+        } else {
+            $data = $request->all();
+            if (Auth::user()->role != 'admin') {
+                $data['user_id'] = Auth::id();
+            }
+
+            $data['status'] = 'new';
+            if ($request->get('submit') == 'preview') {
+                $data['status'] = 'preview';
+            }
+            $data['activity_date'] = now();
+            $data['body'] = m_nofollow($data['body']);
+            $thread = Thread::create($data);
+            $this->getFilesSaver()->save($request, $thread);
+            if ($thread->status == 'preview') {
+                return redirect()->route('discussions.preview', $thread->id);
+            }
+
+            $share_service = new ShareService();
+            $share_service->linkedin($thread);
+
+            $subject = 'A new discussion has been posted on My-Spread';
+            Mail::send('emails.new_thread', ['thread' => $thread], function ($m) use ($subject) {
+                $m->to(config('mail.notifications'))->subject($subject);
+            });
+            flash()->success('Thanks. You have added a new discussion to My-Spread');
+            return redirect()->route('discussions.show', $thread->id);
+        }
     }
+
 
 
     /**

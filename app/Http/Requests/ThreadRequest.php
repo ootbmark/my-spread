@@ -27,7 +27,7 @@ class ThreadRequest extends FormRequest
     {
         $rules =  [
             'subject' => 'required|string|max:255',
-            'body' => ['required', new DetectSpamKeywords()],
+            'body' => 'required',
             'location' => 'required|string|max:255',
             'group_id' => 'required',
             'g-recaptcha-response' => 'required|captcha',
