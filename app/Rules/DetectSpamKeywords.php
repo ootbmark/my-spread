@@ -414,7 +414,13 @@ class DetectSpamKeywords implements Rule
         'dysfunction',
         'sexual',
         'erection',
-        'erectile','Cenforce', 'Sexual', 'Sexual Health', 'Medication', 'Sexual Activity', 'Dysfunction'
+        'erectile',
+        'Cenforce',
+        'Sexual',
+        'Sexual Health',
+        'Medication',
+        'Sexual Activity',
+        'Dysfunction'
     ];
     /**
      * Create a new rule instance.
