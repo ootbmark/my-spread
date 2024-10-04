@@ -21,13 +21,15 @@
         <div class="main-section d-flex flex-wrap pb-4 forum-section">
 
             <div class="section-left">
-                <h2 class="title-h1 font-medium mb-4">{{ $thread->subject }}</h2>
-
+                <h2 class="title-h1 font-medium ">{{ $thread->subject }}</h2>
+                <span class="mb-4"><span
+                        class="badge bg-secondary text-white mb-4">{{ $thread->created_at->format('d F Y') }}</span></span>
                 @auth
                     <div class="forum-change-links d-flex align-items-center mb-5">
                         @if (auth()->user()->role == 'admin')
                             @if (!$thread->is_closed)
-                                <a href="#" data-toggle="modal" data-target="#lockModal"><i class="fa fa-lock"></i>Lock</a>
+                                <a href="#" data-toggle="modal" data-target="#lockModal"><i
+                                        class="fa fa-lock"></i>Lock</a>
                             @else
                                 <a href="#" onclick="$(this).next().submit()"><i class="fa fa-unlock"></i>Unlock</a>
                                 <form action="{{ route('dashboard.threads.open', $thread->id) }}" method="POST"

@@ -109,7 +109,7 @@ class DiscussionController extends Controller
     public function show($id)
     {
         $thread = Thread::where('id', $id)->where('status', 'deleted')->first();
-        if ($thread) {
+        if (!$thread) {
             $thread = Thread::findOrFail($id);
             SeoService::setPageMeta('discussion', $thread);
             $users = User::active()->get();
