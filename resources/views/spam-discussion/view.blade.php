@@ -9,7 +9,7 @@
     <div class="profile-content">
 
         <div class="discussions-container ml-0 mt-4">
-           
+
 
             <div class="table-responsive mt-5 discussions-table">
                 <table class="table">
@@ -24,15 +24,18 @@
                         </tr>
                         @foreach ($threads as $thread)
                             <tr>
-                                <td><a href="{{ route('discussions.show', $thread->id) }}">{{ $thread->id }}</a></td>
-                                <td><a href="{{ route('discussions.show', $thread->id) }}">{{ $thread->subject }}</a></td>
+                                <td><a href="{{ route('discussion-spam.spam-view', $thread->id) }}">{{ $thread->id }}</a>
+                                </td>
+                                <td><a
+                                        href="{{ route('discussion-spam.spam-view', $thread->id) }}">{{ $thread->subject }}</a>
+                                </td>
                                 <td>{{ $thread->group ? $thread->group->name : 'No Group' }}</td>
                                 <td>{{ $thread->status }}</td>
                                 <td>{{ $thread->created_at->format('d F Y') }}</td>
                                 <td class="action-buttons">
-                                    <a href="{{ route('discussions.show', $thread->id) }}"
+                                    <a href="{{ route('discussion-spam.spam-view', $thread->id) }}"
                                         class="action-link action-link-blue" title="View"><i class="fa fa-eye"></i></a>
-                                    <a href="{{ route('dashboard.threads.edit', $thread->id) }}"
+                                    {{--  <a href="{{ route('dashboard.threads.edit', $thread->id) }}"
                                         class="action-link action-link-green" title="Edit"><i
                                             class="fa fa-pencil"></i></a>
                                     <a href="#" class="action-link action-link-red" title="Remove"
@@ -41,7 +44,7 @@
                                         onsubmit="return confirm('Are you sure?')">
                                         @csrf
                                         @method('DELETE')
-                                    </form>
+                                    </form> --}}
                                 </td>
                             </tr>
                         @endforeach

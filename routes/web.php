@@ -84,6 +84,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     // Spam Discussion Routes
     Route::get('/discussion/spam', [App\Http\Controllers\SpamDiscussionsController::class, 'index'])->name('discussion-spam.view');
     Route::get('/discussion/spam/{id}', [App\Http\Controllers\SpamDiscussionsController::class, 'view'])->name('discussion-spam.spam-view');
+    Route::post('/discussion/spam/invalid', [App\Http\Controllers\SpamDiscussionsController::class, 'store_thread'])->name('discussion-spam.invalid-spam');
 });
 
 Route::get('/discussions', [App\Http\Controllers\DiscussionController::class, 'index'])->name('discussions.index');
