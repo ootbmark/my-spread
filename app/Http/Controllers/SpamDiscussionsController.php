@@ -40,8 +40,8 @@ class SpamDiscussionsController extends Controller
 
         $subject = 'A new discussion has been posted on My-Spread';
         Mail::send('emails.new_thread', ['thread' => $thread], function ($mail) use ($subject) {
-            $mail->to('mark@ootbinnovations.com')->subject($subject);
-            /*  $m->to(config('mail.notifications'))->subject($subject); */
+            //$mail->to('mark@ootbinnovations.com')->subject($subject);
+            $mail->to(config('mail.notifications'))->subject($subject);
         });
         flash()->success('The discussion has been removed from spam.');
         return redirect(route('discussion-spam.view'));
