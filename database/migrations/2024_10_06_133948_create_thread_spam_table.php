@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateThreadSpansTable extends Migration
+class CreateThreadSpamTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateThreadSpansTable extends Migration
      */
     public function up()
     {
-        Schema::create('thread_spans', function (Blueprint $table) {
+        Schema::create('thread_spam', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('group_id');
@@ -34,6 +34,6 @@ class CreateThreadSpansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('thread_spans');
+        Schema::dropIfExists('thread_spam');
     }
 }

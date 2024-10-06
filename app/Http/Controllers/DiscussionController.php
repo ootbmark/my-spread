@@ -13,7 +13,7 @@ use App\Models\Group;
 use App\Models\Organisation;
 use App\Models\Reply;
 use App\Models\Thread;
-use App\Models\ThreadSpan;
+use App\Models\ThreadSpam;
 use App\Models\User;
 use App\Rules\DetectSpamKeywords;
 use App\Services\FileService;
@@ -197,18 +197,22 @@ class DiscussionController extends Controller
      */
     public function check(Request $request)
     {
-        SeoService::setPageMeta('create_discussion');
-        $threads = [];
-        if ($request->get('search')) {
-            $threads = Thread::withCount('replies')->with('group', 'user')
-                ->where('subject', 'LIKE', '%' . $request->get('search') . '%')
-                ->active()
-                ->sortable(['id' => 'desc'])
-                ->paginate(m_per_page());
-            session()->put('discussion_subject', $request->get('search'));
-        }
+        if (Auth::user()->verified()) {
+            SeoService::setPageMeta('create_discussion');
+            $threads = [];
+            if ($request->get('search')) {
+                $threads = Thread::withCount('replies')->with('group', 'user')
+                    ->where('subject', 'LIKE', '%' . $request->get('search') . '%')
+                    ->active()
+                    ->sortable(['id' => 'desc'])
+                    ->paginate(m_per_page());
+                session()->put('discussion_subject', $request->get('search'));
+            }
 
-        return view('discussions.check', compact('threads'));
+            return view('discussions.check', compact('threads'));
+        } else {
+            return back();
+        }
     }
 
 
@@ -217,18 +221,22 @@ class DiscussionController extends Controller
      */
     public function create()
     {
-        if (\auth()->user()->status == 'new' && \auth()->user()->threads()->count() > 0) {
-            flash()->warning("You've already posted your discussion..
-            Please wait until your account is verified to add new discussions");
-            return redirect()->route('discussions.index');
+        if (Auth::user()->verified()) {
+            if (\auth()->user()->status == 'new' && \auth()->user()->threads()->count() > 0) {
+                flash()->warning("You've already posted your discussion..
+                Please wait until your account is verified to add new discussions");
+                return redirect()->route('discussions.index');
+            }
+            SeoService::setPageMeta('create_discussion');
+            $groups = Group::active()->get();
+            $users = User::active()->get();
+            $thread = Thread::find(\request()->get('thread_id'));
+            $subject = session()->get('discussion_subject');
+            session()->forget('discussion_subject');
+            return view('discussions.create', compact('groups', 'users', 'thread', 'subject'));
+        } else {
+            return back();
         }
-        SeoService::setPageMeta('create_discussion');
-        $groups = Group::active()->get();
-        $users = User::active()->get();
-        $thread = Thread::find(\request()->get('thread_id'));
-        $subject = session()->get('discussion_subject');
-        session()->forget('discussion_subject');
-        return view('discussions.create', compact('groups', 'users', 'thread', 'subject'));
     }
 
 
@@ -250,11 +258,11 @@ class DiscussionController extends Controller
                 $data['status'] = 'preview';
             }
             $data['body'] = m_nofollow($data['body']);
-            $thread = ThreadSpan::create($data);
+            $thread = ThreadSpam::create($data);
 
             $subject = 'Spam Discussion has detected';
             Mail::send('emails.new_thread', ['thread' => $thread], function ($mail) use ($subject) {
-                $mail->to('mark@oobtinnovations.com')->subject($subject);
+                $mail->to('mark@ootbinnovations.com')->subject($subject);
             });
 
             flash()->success('Thanks. You have added a new discussion to My-Spread');

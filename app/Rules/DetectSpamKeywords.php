@@ -420,7 +420,19 @@ class DetectSpamKeywords implements Rule
         'Sexual Health',
         'Medication',
         'Sexual Activity',
-        'Dysfunction'
+        'Dysfunction',
+        'Devil',
+        'Occult',
+        'Brotherhood',
+        'Witchcraft',
+        'IDUSAKU',
+        'FIDENA',
+        'PURPLE PILL',
+        '100 MG',
+        'Powmedz',
+        'occultism',
+        'Black Magic',
+        'Exorcist',
     ];
     /**
      * Create a new rule instance.

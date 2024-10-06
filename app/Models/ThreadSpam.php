@@ -2,16 +2,15 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Model;
 
-class ThreadSpan extends Model
+class ThreadSpam extends Model
 {
-    use HasFactory;
-
     protected $fillable =  [
         'user_id',
         'group_id',
@@ -71,7 +70,7 @@ class ThreadSpan extends Model
      * @param $query
      * @return mixed
      */
-   /*  public function scopeActive($query)
+    /*  public function scopeActive($query)
     {
         return $query->where('threads.status', self::ACTIVE);
     } */

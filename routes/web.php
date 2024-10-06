@@ -80,6 +80,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::post('/image', [App\Http\Controllers\ProfileController::class, 'imageUpdate'])->name('profile.image.update');
         Route::post('/image/delete', [App\Http\Controllers\ProfileController::class, 'imageDelete'])->name('profile.image.delete');
     });
+
+    // Spam Discussion Routes
+    Route::get('/discussion/spam', [App\Http\Controllers\SpamDiscussionsController::class, 'index'])->name('discussion-spam.view');
+    Route::get('/discussion/spam/{id}', [App\Http\Controllers\SpamDiscussionsController::class, 'view'])->name('discussion-spam.spam-view');
 });
 
 Route::get('/discussions', [App\Http\Controllers\DiscussionController::class, 'index'])->name('discussions.index');
