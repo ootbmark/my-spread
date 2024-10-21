@@ -87,7 +87,7 @@ class RegisterController extends Controller
             'organisation_id' => ['required'],
             'organisation_name' => ['required_if:organisation_id,new'],
             'organisation_email' => ['nullable', 'email', 'max:255'],
-            'image' => 'required',
+            #'image' => 'required',
             'g-recaptcha-response' => 'required|captcha',
         ];
 
