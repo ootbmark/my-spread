@@ -59,12 +59,12 @@
                     <p>my-spread.com is owned and operated by:</p>
 
                     <p>Relentless Pursuit of Perfection Ltd.</p>
-                    <p>12/F, Henley Building,</p>
-                    <p>Suite No. 8640,</p>
-                    <p>5 Queen’s Road Central,</p>
+                    <p>Unit C, 17/F, United Centre</p>
+                    <p>95 Queensway</p>
+                    <p>Admiralty</p>
                     <p>Hong Kong</p>
 
-                    <p>HK Company Registration number: 1703157</p>
+                    <p>Company Registered 59385350 in Hong Kong</p>
                     This email was sent to you because you’re a registered member of the SPREAD technical drilling forum. If you wish, you may change the frequency that you receive alerts, and also choose which topics you want to hear about <a class="user_link" href="{{ route('profile.index') }}">HERE</a>. Want out of the loop? Click <a href="{{ route('profile.notifications') }}" class="user_link">UNSUBSCRIBE</a>.
                     <br>{{ date('Y') }} © SPREAD. All Rights Reserved. </div>
             </td>
