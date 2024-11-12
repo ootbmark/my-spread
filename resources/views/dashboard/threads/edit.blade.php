@@ -9,7 +9,7 @@
     <div class="profile-content">
         @include('dashboard._navbar')
 
-        <div class="discussions-container ml-0 mt-4">
+        <div class="discussions-container ml-0 mt-4" style="padding-bottom:100px">
             <form action="{{ route('dashboard.threads.update', $thread->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
