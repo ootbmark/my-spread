@@ -12,7 +12,7 @@
             <p>All the discussions under the forum are organised by categories known as discussion groups. Some of the groups are further divided into subgroups for a better classification.</p>
             <b>How do I Register on SPREAD?</b>
             <p>You can watch the video below which will walk you through our registration process.</p>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/tmb_vfnyCMU?si=iLiWoCLzTgehdgYE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br><br>
+            <iframe width="560" height="315" src="https://www.youtube.com/watch?v=oTFMU5PWT8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br><br>
             <b>How do I use the discussion forum?</b><br>
             <p>When you click on a group or sub-group name in the discussion forum, you are taken to the list of discussions it contains. A discussion is a written conversation between members on some specific topic of interest. A registered member starts a discussion as a single post and it grows as more and more members share their ideas on what was sought by the member who initiated the discussion.</p>
             <p>To start a new thread, simply click on the Start New Discussion button at the top right corner of any group’s page (you will need to be logged in).</p>
