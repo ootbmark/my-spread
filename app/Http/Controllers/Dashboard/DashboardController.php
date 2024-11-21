@@ -38,4 +38,14 @@ class DashboardController extends Controller
         flash()->success('Alert sent');
         return back();
     }
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function sendWeeklyAlerts()
+    {
+        set_time_limit(1000000);
+        Artisan::call('weekly_alert');
+        flash()->success('Alert sent');
+        return back();
+    }
 }

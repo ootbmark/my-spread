@@ -103,3 +103,7 @@ Route::get('/user-guide', [App\Http\Controllers\PageController::class, 'guide'])
 Route::get('/faq', [App\Http\Controllers\PageController::class, 'faq'])->name('faq');
 Route::get('/tos-privacy-cookie', [App\Http\Controllers\PageController::class, 'privacy'])->name('privacy');
 Route::get('/logout-account', [App\Http\Controllers\PageController::class, 'logout'])->name('page.logout');
+
+Route::get('/email-footer', function () {
+    return view('emails.footer_alert');
+});
