@@ -6,18 +6,44 @@
             margin-top: 50px;
             margin-bottom: 50px;
         }
+
+        .banner-ads {
+            margin-top: 10px;
+            margin-bottom: 30px;
+            background-color: rebeccapurple;
+            border-radius: 5px;
+            color: aliceblue;
+            text-align: center;
+            font-weight: 900;
+        }
+
+        .banner-ads p {
+            padding-top: 10px;
+        }
+
+        .banner-ads img {
+            margin-top: 0px;
+            width: 100%
+        }
     </style>
 @endsection
 
 @section('content')
 
     <div class="my-container bg-white pt-3 mt-4 mb-5">
+
         <div class="breadcrumbs_header mb-5">
             <a href="{{ route('discussions.index') }}">Discussion Forum</a> &gt;
             <a href="{{ route('groups.discussions', $thread->group_id) }}">{{ $thread->group->name }}</a> &gt;
             {{ $thread->subject }}
         </div>
-
+        <div class="">
+            <a href="https://rp-squared.com/">
+                <img decoding="async" style="width: 100%;"
+                    src="{{asset("images/rp-squared-780-x-90-banner.png")}}"
+                    alt="spot_img">
+            </a>
+        </div>
         <div class="main-section d-flex flex-wrap pb-4 forum-section">
 
             <div class="section-left">
@@ -384,6 +410,7 @@
                         <p>Replies: {{ $thread->user->replies()->active()->count() }}</p>
                     </figcaption>
                 </figure>
+              
                 <h5 class="font-medium mb-4">Related Discussions</h5>
 
                 @foreach ($related_threads as $related_thread)

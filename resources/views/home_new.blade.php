@@ -1,5 +1,12 @@
 @extends('layouts.app_new')
-
+@section('add-css')
+    <style>
+        .banner-ads {
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+@endsection
 @section('content')
     <section id="fullpage">
         <div class="bg__first section active position-relative" id="section0">
@@ -16,6 +23,17 @@
                                 <h4>Welcome to</h4>
                                 <h2><span class="green">MY-</span>SPREAD</h2>
                                 <p>Sharing Knowledge amongst Energy Professionals</p>
+
+                                <div class="right-captions banner-ads">
+
+                                    <p>Brought to you FREE by
+                                        <a href="https://rp-squared.com/">
+                                            <img src="{{ asset('images/RPSQUARED.png') }}" style="width: 50%"
+                                                alt="ads-logo">
+                                        </a>
+                                    </p>
+                                </div>
+
 
                                 <div class="stroked-button">
                                     @guest
@@ -36,6 +54,7 @@
                                     @endguest
                                 </div>
                             </div>
+
                         </div>
                     </div>
                     <div class="arrow">
@@ -51,7 +70,6 @@
                 </div>
             </div>
         </div>
-
         <section class="section" id="section1" style="background-color: #eee!important;">
             <div class="container parallax">
                 <div class="row">
@@ -139,7 +157,8 @@
                         <div class="w-100 button-group d-flex justify-content-between mt-4">
                             <a href="{{ route('discussions.check') }}" class="btn my-btn text-uppercase">Start a new
                                 discussion</a>
-                            <a href="{{ route('discussions.index') }}" class="btn my-btn text-uppercase">All Discussions</a>
+                            <a href="{{ route('discussions.index') }}" class="btn my-btn text-uppercase">All
+                                Discussions</a>
                             <a href="{{ route('discussions.index') }}?unanswered=1"
                                 class="btn my-btn text-uppercase">Waiting for responses</a>
                         </div>
