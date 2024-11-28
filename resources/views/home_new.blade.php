@@ -5,6 +5,33 @@
             color: white;
             margin-top: 30px;
         }
+
+        </div>.p {
+            font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
+            /* Solid, bold font */
+            font-weight: bold;
+            /* Makes text bold */
+            text-transform: none;
+            /* Ensures text is not all caps */
+            font-size: 1.2em;
+            /* Slightly larger text to "pop" */
+            letter-spacing: 0.5px;
+            /* Slight spacing for emphasis */
+            color: #000000;
+            /* Solid black text */
+        }
+
+        .banner-logo {
+            display: inline-block;
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .sub-title-ads {
+            color: #eee;
+            font-size: 16px;
+            margin-top: 10%;
+        }
     </style>
 @endsection
 @section('content')
@@ -24,17 +51,17 @@
                                 <h2><span class="green">MY-</span>SPREAD</h2>
                                 <p>Sharing Knowledge amongst Energy Professionals</p>
 
-                                <div class="right-captions banner-ads">
+                                <a href="https://rp-squared.com/" style="margin-top:10%;">
+                                    <label class="sub-title-ads">Brought to you free by:</label> <br>
+                                    <div class="banner-logo" style="margin-bottom:5%">
+                                        <img src="{{ asset('images/rp2-highres.png') }}" style="width: 80px" alt="ads-logo">
 
-                                    <p>Brought to you FREE by
-                                        <a href="https://rp-squared.com/">
-                                            <img src="{{ asset('images/RPSQUARED.png') }}" style="width: 50%"
-                                                alt="ads-logo">
-                                        </a>
-                                    </p>
-                                </div>
-
-
+                                        <label style="color: #eee; font-size:24px">
+                                            Relentless Pursuit of
+                                            Perfection Ltd.
+                                        </label>
+                                    </div>
+                                </a>
                                 <div class="stroked-button">
                                     @guest
                                         <a href="{{ route('login') }}" class="link" data-id="second-section">LOGIN /
@@ -54,21 +81,22 @@
                                     @endguest
                                 </div>
                             </div>
-
                         </div>
-                    </div>
-                    <div class="arrow">
-                        <a href="#welcome" class="scroll-link" data-id="second-section">
-                            <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
-                            <lord-icon src="https://cdn.lordicon.com/wtfdpwey.json" trigger="loop"
-                                colors="primary:#ffffff,secondary:#c71f16" stroke="90" scale="13"
-                                style="width:250px;height:250px">
-                            </lord-icon>
-                            <div class="scrollertext">Scroll down</div>
-                        </a>
+
                     </div>
                 </div>
+                <div class="arrow">
+                    <a href="#welcome" class="scroll-link" data-id="second-section">
+                        <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/wtfdpwey.json" trigger="loop"
+                            colors="primary:#ffffff,secondary:#c71f16" stroke="90" scale="13"
+                            style="width:250px;height:250px">
+                        </lord-icon>
+                        <div class="scrollertext">Scroll down</div>
+                    </a>
+                </div>
             </div>
+        </div>
         </div>
         <section class="section" id="section1" style="background-color: #eee!important;">
             <div class="container parallax">
