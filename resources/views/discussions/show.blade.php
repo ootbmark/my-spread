@@ -38,7 +38,7 @@
             {{ $thread->subject }}
         </div>
         <div class="" style="margin-bottom:5px;">
-            <a href="https://rp-squared.com/">
+            <a href="https://rp-squared.com/" target="_blank">
                 <img decoding="async" style="width: 100%;" src="{{ asset('images/rp-squared-780-x-90-banner.png') }}"
                     alt="spot_img">
             </a>

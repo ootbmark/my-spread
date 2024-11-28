@@ -51,7 +51,7 @@
                                 <h2><span class="green">MY-</span>SPREAD</h2>
                                 <p>Sharing Knowledge amongst Energy Professionals</p>
 
-                                <a href="https://rp-squared.com/" style="margin-top:10%;">
+                                <a href="https://rp-squared.com/"  style="margin-top:10%;" target="_blank">
                                     <label class="sub-title-ads">Brought to you free by:</label> <br>
                                     <div class="banner-logo" style="margin-bottom:5%">
                                         <img src="{{ asset('images/rp2-highres.png') }}" style="width: 80px" alt="ads-logo">
