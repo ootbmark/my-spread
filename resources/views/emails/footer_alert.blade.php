@@ -1,7 +1,7 @@
 <div class="disclaimer" style="background-color:#F5F5F5; padding:10px; font-size:9px;">
     <p>my-spread.com is owned and operated by:</p>
-
-    <p>Relentless Pursuit of Perfection Ltd.</p>
+    <a href="https://www.rp-squared.com">
+    <p>Relentless Pursuit of Perfection Ltd.</p></a>
     <p>Unit C, 17/F, United Centre</p>
     <p>95 Queensway</p>
     <p>Admiralty</p>
@@ -9,7 +9,7 @@
 
     <p>Company Registered 59385350 in Hong Kong</p>
 
-
+    <br>
     <p style="color:blue; font-size:10px;">
         Delivery Assurance through Technical Facilitation, Performance Coaching (HSE,
         Efficiency) <a href="https://www.rp-squared.com"><b>rp-squared.com</b></a>
@@ -19,7 +19,6 @@
     </p>
     <p style="color: blue; font-size:10px;">
         Check out our FREE Energy Discussion Forum <a href="https://www.my-spread.com"><b>my-spread.com</b></a>
-
     </p>
     <br>
     This email was sent to you because you’re a registered member of the SPREAD technical drilling forum. If

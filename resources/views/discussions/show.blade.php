@@ -37,10 +37,9 @@
             <a href="{{ route('groups.discussions', $thread->group_id) }}">{{ $thread->group->name }}</a> &gt;
             {{ $thread->subject }}
         </div>
-        <div class="">
+        <div class="" style="margin-bottom:5px;">
             <a href="https://rp-squared.com/">
-                <img decoding="async" style="width: 100%;"
-                    src="{{asset("images/rp-squared-780-x-90-banner.png")}}"
+                <img decoding="async" style="width: 100%;" src="{{ asset('images/rp-squared-780-x-90-banner.png') }}"
                     alt="spot_img">
             </a>
         </div>
@@ -410,7 +409,7 @@
                         <p>Replies: {{ $thread->user->replies()->active()->count() }}</p>
                     </figcaption>
                 </figure>
-              
+
                 <h5 class="font-medium mb-4">Related Discussions</h5>
 
                 @foreach ($related_threads as $related_thread)
