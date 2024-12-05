@@ -24,6 +24,6 @@
     This email was sent to you because you’re a registered member of the SPREAD technical drilling forum. If
     you wish, you may change the frequency that you receive alerts, and also choose which topics you want to
     hear about <a class="user_link" href="{{ route('profile.index') }}">HERE</a>. Want out of the loop?
-    Click <a href="{{ route('profile.notifications') }}" class="user_link">UNSUBSCRIBE</a>.
+    Click <a href="{{ route('profile.notifications') }}" class="user_link">UNSUBSCRIBE</a>. Please do not reply to this email.
     <br>{{ date('Y') }} © SPREAD. All Rights Reserved.
 </div>
