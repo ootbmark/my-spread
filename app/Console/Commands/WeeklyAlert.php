@@ -100,7 +100,7 @@ class WeeklyAlert extends Command
                 try {
                     Mail::send('emails.weekly_alert', ['user' => $user, 'groups' => $groups],
                         function ($m) use ($user, $subject) {
-                            $m->from('alerts@my-spread.com', 'My Spread <DO NOT REPLY>');
+                            $m->from('alerts@my-spread.com', 'My Spread Alert <do-not-reply>');
                             $m->to($user->email)->subject($subject);
                         });
                 } catch (\Exception $e) {
@@ -121,7 +121,7 @@ class WeeklyAlert extends Command
                 try {
                     Mail::send('emails.weekly_alert_replies', ['user' => $user, 'responses' => $reply_groups, 'subject' => $subject],
                         function ($forum) use ($user, $subject) {
-                            $forum->from('alerts@my-spread.com', 'My Spread <DO NOT REPLY>')->subject($subject);
+                            $forum->from('alerts@my-spread.com', 'My Spread Alert <do-not-reply>')->subject($subject);
                             if ($user->alert_to_personal && $user->personal_email) {
                                 if ($user->alert_to_personal == 1) {
                                     $forum->to($user->personal_email);
