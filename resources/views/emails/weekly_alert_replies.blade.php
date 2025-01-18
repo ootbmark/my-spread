@@ -3,6 +3,14 @@
     <table class="container">
         <tr>
             <td>
+                <a href="https://rp-squared.com/" target="_blank">
+                    <img align="center" border="0" src="https://my-spread.com/images/rp-squared-780-x-90-banner.png"
+                        alt="ads-banner" title="rp-squared" style="max-width: 100%;" />
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <table class="row">
                     <tr>
                         <td class="wrapper last">

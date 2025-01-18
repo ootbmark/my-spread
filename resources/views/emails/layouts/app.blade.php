@@ -1079,7 +1079,6 @@
                             </td>
                         </tr>
                     </table>
-                    <img src="{{ asset('\images\rp-squared-780-x-90-banner.png') }}" width="100">
                     @yield('content')
                 </center>
             </td>
