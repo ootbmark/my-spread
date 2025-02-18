@@ -39,7 +39,7 @@
         </div>
         <div class="" style="margin-bottom:5px;">
             <a href="https://rp-squared.com/" target="_blank">
-                <img decoding="async" style="width: 100%;" src="{{ asset('images/rp-squared-780-x-90-banner.png') }}"
+                <img decoding="async" style="width: 100%;" src="{{ asset('images/rp-squared-780-x-90-banner_1.png') }}"
                     alt="spot_img">
             </a>
         </div>
