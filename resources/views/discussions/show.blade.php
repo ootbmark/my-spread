@@ -6,28 +6,55 @@
             margin-top: 50px;
             margin-bottom: 50px;
         }
+
+        .banner-ads {
+            margin-top: 10px;
+            margin-bottom: 30px;
+            background-color: rebeccapurple;
+            border-radius: 5px;
+            color: aliceblue;
+            text-align: center;
+            font-weight: 900;
+        }
+
+        .banner-ads p {
+            padding-top: 10px;
+        }
+
+        .banner-ads img {
+            margin-top: 0px;
+            width: 100%
+        }
     </style>
 @endsection
 
 @section('content')
 
     <div class="my-container bg-white pt-3 mt-4 mb-5">
+
         <div class="breadcrumbs_header mb-5">
             <a href="{{ route('discussions.index') }}">Discussion Forum</a> &gt;
             <a href="{{ route('groups.discussions', $thread->group_id) }}">{{ $thread->group->name }}</a> &gt;
             {{ $thread->subject }}
         </div>
-
+        <div class="" style="margin-bottom:5px;">
+            <a href="https://rp-squared.com/" target="_blank">
+                <img decoding="async" style="width: 100%;" src="{{ asset('images/rp-squared-780-x-90-banner_1.png') }}"
+                    alt="spot_img">
+            </a>
+        </div>
         <div class="main-section d-flex flex-wrap pb-4 forum-section">
 
             <div class="section-left">
-                <h2 class="title-h1 font-medium mb-4">{{ $thread->subject }}</h2>
-
+                <h2 class="title-h1 font-medium ">{{ $thread->subject }}</h2>
+                <span class="mb-4"><span
+                        class="badge bg-secondary text-white mb-4">{{ $thread->created_at->format('d F Y') }}</span></span>
                 @auth
                     <div class="forum-change-links d-flex align-items-center mb-5">
                         @if (auth()->user()->role == 'admin')
                             @if (!$thread->is_closed)
-                                <a href="#" data-toggle="modal" data-target="#lockModal"><i class="fa fa-lock"></i>Lock</a>
+                                <a href="#" data-toggle="modal" data-target="#lockModal"><i
+                                        class="fa fa-lock"></i>Lock</a>
                             @else
                                 <a href="#" onclick="$(this).next().submit()"><i class="fa fa-unlock"></i>Unlock</a>
                                 <form action="{{ route('dashboard.threads.open', $thread->id) }}" method="POST"
@@ -382,6 +409,7 @@
                         <p>Replies: {{ $thread->user->replies()->active()->count() }}</p>
                     </figcaption>
                 </figure>
+
                 <h5 class="font-medium mb-4">Related Discussions</h5>
 
                 @foreach ($related_threads as $related_thread)

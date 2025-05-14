@@ -420,7 +420,19 @@ class DetectSpamKeywords implements Rule
         'Sexual Health',
         'Medication',
         'Sexual Activity',
-        'Dysfunction'
+        'Dysfunction',
+        'Devil',
+        'Occult',
+        'Brotherhood',
+        'Witchcraft',
+        'IDUSAKU',
+        'FIDENA',
+        'PURPLE PILL',
+        '100 MG',
+        'Powmedz',
+        'occultism',
+        'Black Magic',
+        'Exorcist',
     ];
     /**
      * Create a new rule instance.
@@ -441,15 +453,17 @@ class DetectSpamKeywords implements Rule
      */
     public function passes($attribute, $value)
     {
-        // Check if any spam keyword exists in the body text
+        // Check if any spam keyword exists as a whole word in the body text
         foreach ($this->spamKeywords as $keyword) {
-            if (stripos($value, $keyword) !== false) {
+            // Use regex to match whole words only
+            if (preg_match('/\b' . preg_quote($keyword, '/') . '\b/i', $value)) {
                 return false;
             }
         }
 
         return true;
     }
+
 
     /**
      * Get the validation error message.

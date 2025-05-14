@@ -37,7 +37,7 @@ class Group extends Model
     /**
      * @return BelongsTo
      */
-    public function parent() : BelongsTo
+    public function parent(): BelongsTo
     {
         return $this->belongsTo(Group::class, 'parent_id');
     }
@@ -45,7 +45,7 @@ class Group extends Model
     /**
      * @return HasMany
      */
-    public function groups() : HasMany
+    public function groups(): HasMany
     {
         return $this->hasMany(Group::class, 'parent_id');
     }
@@ -53,7 +53,7 @@ class Group extends Model
     /**
      * @return HasMany
      */
-    public function threads() : HasMany
+    public function threads(): HasMany
     {
         return $this->hasMany(Thread::class);
     }
@@ -61,9 +61,9 @@ class Group extends Model
     /**
      * @return HasOne
      */
-    public function last_thread() : HasOne
+    public function last_thread(): HasOne
     {
-        return $this->hasOne(Thread::class)->orderBy('id', 'desc');
+        return $this->hasOne(Thread::class)->orderBy('id', 'desc')->where('status', 'active');
     }
 
     /**
@@ -77,7 +77,7 @@ class Group extends Model
     /**
      * @return BelongsToMany
      */
-    public function users() : BelongsToMany
+    public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'user_groups');
     }
@@ -90,6 +90,4 @@ class Group extends Model
     {
         return $query->where('status', self::ACTIVE);
     }
-
-
 }

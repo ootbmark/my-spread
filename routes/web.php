@@ -80,6 +80,11 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::post('/image', [App\Http\Controllers\ProfileController::class, 'imageUpdate'])->name('profile.image.update');
         Route::post('/image/delete', [App\Http\Controllers\ProfileController::class, 'imageDelete'])->name('profile.image.delete');
     });
+
+    // Spam Discussion Routes
+    Route::get('/discussion/spam', [App\Http\Controllers\SpamDiscussionsController::class, 'index'])->name('discussion-spam.view');
+    Route::get('/discussion/spam/{id}', [App\Http\Controllers\SpamDiscussionsController::class, 'view'])->name('discussion-spam.spam-view');
+    Route::post('/discussion/spam/invalid', [App\Http\Controllers\SpamDiscussionsController::class, 'store_thread'])->name('discussion-spam.invalid-spam');
 });
 
 Route::get('/discussions', [App\Http\Controllers\DiscussionController::class, 'index'])->name('discussions.index');
@@ -98,3 +103,7 @@ Route::get('/user-guide', [App\Http\Controllers\PageController::class, 'guide'])
 Route::get('/faq', [App\Http\Controllers\PageController::class, 'faq'])->name('faq');
 Route::get('/tos-privacy-cookie', [App\Http\Controllers\PageController::class, 'privacy'])->name('privacy');
 Route::get('/logout-account', [App\Http\Controllers\PageController::class, 'logout'])->name('page.logout');
+
+Route::get('/email-footer', function () {
+    return view('emails.footer_alert');
+});

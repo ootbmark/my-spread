@@ -33,10 +33,33 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $fillable = ['first_name', 'last_name', 'username', 'email', 'password', 'personal_email', 'image',
-        'alert', 'role', 'status', 'address', 'location', 'job_title', 'organisation_id', 'reg_source', 'why_spread',
-        'university_id', 'students_alert', 'alert_to_personal', 'contact_to_personal', 'is_subscribed', 'provider',
-        'provider_id', 'linkedin_url', 'number'];
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'username',
+        'email',
+        'password',
+        'personal_email',
+        'image',
+        'alert',
+        'role',
+        'status',
+        'address',
+        'location',
+        'job_title',
+        'organisation_id',
+        'reg_source',
+        'why_spread',
+        'university_id',
+        'students_alert',
+        'alert_to_personal',
+        'contact_to_personal',
+        'is_subscribed',
+        'provider',
+        'provider_id',
+        'linkedin_url',
+        'number'
+    ];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -234,5 +257,9 @@ class User extends Authenticatable implements MustVerifyEmail
                 $q->orWhereIn('company_id', $this->companies()->pluck('id'));
             });
         }
+    }
+    function verified()
+    {
+        return $this->status == 'active' ? true : false;
     }
 }

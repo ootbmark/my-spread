@@ -100,7 +100,7 @@ class DailyAlert extends Command
                 try {
                     Mail::send('emails.daily_alert', ['user' => $user, 'groups' => $groups],
                         function ($m) use ($user, $subject) {
-                            $m->from('alerts@my-spread.com', 'My Spread');
+                            $m->from('alerts@my-spread.com', 'My Spread Alert <do-not-reply>');
                             $m->to($user->email)->subject($subject);
                         });
                 } catch (\Exception $e) {
@@ -121,7 +121,7 @@ class DailyAlert extends Command
                 try {
                     Mail::send('emails.daily_alert_replies', ['user' => $user, 'reply_groups' => $reply_groups, 'subject' => $subject],
                         function ($forum) use ($user, $subject) {
-                            $forum->from('alerts@my-spread.com', 'My Spread')->subject($subject);
+                            $forum->from('alerts@my-spread.com', 'My Spread Alert <do-not-reply>')->subject($subject);
 
                             if ($user->alert_to_personal && $user->personal_email) {
                                 if ($user->alert_to_personal == 1) {

@@ -17,6 +17,7 @@ Route::get('/', [App\Http\Controllers\Dashboard\DashboardController::class, 'ind
 
 Route::get('/alerts', [App\Http\Controllers\Dashboard\DashboardController::class, 'alerts'])->name('dashboard.alerts');
 Route::post('/dail-alert', [App\Http\Controllers\Dashboard\DashboardController::class, 'sendDailyAlerts'])->name('dashboard.daily_alert');
+Route::post('/weekly-alert', [App\Http\Controllers\Dashboard\DashboardController::class, 'sendWeeklyAlerts'])->name('dashboard.weekly_alert');
 
 Route::get('/users', [App\Http\Controllers\Dashboard\UserController::class, 'index'])->name('dashboard.users.index');
 Route::get('/users/{id}/edit', [App\Http\Controllers\Dashboard\UserController::class, 'edit'])->name('dashboard.users.edit');
