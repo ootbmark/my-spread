@@ -38,18 +38,22 @@ class UserController extends Controller
     {
         $users = User::when($request->get('status'), function ($q) use ($request) {
             return $q->where('status', $request->get('status'));
-        })->when($request->get('location'), function ($q) use ($request){
-            return $q->where('location', 'LIKE', '%' . $request->get('location') . '%');
-//            ->orWhere(DB::raw('concat(first_name," ",last_name)'), 'like', '%'. $request->get('search') .'%');
-        })->when(
-            $request->get('not_verified') == 1,
-            function ($q) {
-                return $q->whereNull('email_verified_at');
-            },
-            function ($q) {
-                return $q->whereNotNull('email_verified_at');
-            }
-        )
+        })
+            ->where($request->get('organisation_id)'), function ($query) use ($request) {
+                return $query->where('organisation_id', $request->get('organisation_id'));
+            })
+            ->when($request->get('location'), function ($q) use ($request) {
+                return $q->where('location', 'LIKE', '%' . $request->get('location') . '%');
+                //            ->orWhere(DB::raw('concat(first_name," ",last_name)'), 'like', '%'. $request->get('search') .'%');
+            })->when(
+                $request->get('not_verified') == 1,
+                function ($q) {
+                    return $q->whereNull('email_verified_at');
+                },
+                function ($q) {
+                    return $q->whereNotNull('email_verified_at');
+                }
+            )
             ->sortable(['id' => 'desc'])
             ->paginate(m_per_page());
 
@@ -72,7 +76,13 @@ class UserController extends Controller
         $selected_companies = $user->companies()->pluck('companies.id')->toArray();
 
         return view('dashboard.users.edit', compact(
-            'user', 'organisations', 'universities', 'quizes', 'selected_quizes', 'companies', 'selected_companies',
+            'user',
+            'organisations',
+            'universities',
+            'quizes',
+            'selected_quizes',
+            'companies',
+            'selected_companies',
         ));
     }
 
@@ -116,7 +126,7 @@ class UserController extends Controller
     {
         $data = $request->all();
         $user = User::find($request->get('id'));
-        Mail::send('emails.message', ['body' => $data['message'], 'user' => $user], function ($m) use ($data, $user){
+        Mail::send('emails.message', ['body' => $data['message'], 'user' => $user], function ($m) use ($data, $user) {
             $m->to($user->email)->subject($data['subject']);
         });
         flash()->success('Message sent!');
@@ -133,11 +143,14 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->status = $request->get('status');
         $user->save();
-        if($user->is_subscribed && $request->get('message')) {
-            Mail::send('emails.user_status', ['body' => $request->get('message'), 'user' => $user],
+        if ($user->is_subscribed && $request->get('message')) {
+            Mail::send(
+                'emails.user_status',
+                ['body' => $request->get('message'), 'user' => $user],
                 function ($m) use ($user) {
                     $m->to($user->email)->subject('Administrator has changed your status to ' . $user->status);
-                });
+                }
+            );
         }
 
         flash()->success('Status changed!');
