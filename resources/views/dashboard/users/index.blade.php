@@ -34,7 +34,7 @@
                             <button type="submit" aria-label="search" class="btn"><span
                                     class="search-toggle"></span></button>
                         </div>
-                        <div class="discussions-search position-relative flex-grow-1 mb-2 ml-4">
+                        <div class=" flex-grow-1 mb-2 ml-4">
                             <button class="btn btn-outline-primary btn-clear">CLEAR</button>
                         </div>
                     </div>
@@ -164,7 +164,6 @@
             e.preventDefault();
             $('#organisation').val('');
             $('#location').val('');
-            window.location.href = '/users';
         });
         $('#user_id').change(function() {
             window.location.href = '/users/' + $(this).find(':selected').val();
