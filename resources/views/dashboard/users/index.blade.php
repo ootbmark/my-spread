@@ -29,7 +29,7 @@
                             <button type="submit" aria-label="search" class="btn"><span
                                     class="search-toggle"></span></button>
                         </div>
-                        <div class="discussions-search position-relative flex-grow-1 mr-4 mb-2">
+                        <div class="discussions-search position-relative flex-grow-1 mb-2 ml-4">
                             <select name="organisation" id="organisation_id" class="form-control"
                                 onchange="$('#dashboard-filter-form').submit()"></select>
                         </div>
