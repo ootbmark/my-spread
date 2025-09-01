@@ -34,7 +34,9 @@
                             <button type="submit" aria-label="search" class="btn"><span
                                     class="search-toggle"></span></button>
                         </div>
-
+                        <div class="discussions-search position-relative flex-grow-1 mb-2 ml-4">
+                            <button class="btn btn-outline-primary btn-clear">CLEAR</button>
+                        </div>
                     </div>
 
                 </div>
@@ -101,7 +103,8 @@
                     <div class="form-group editor-div">
                         <textarea name="message" id="message" placeholder="Enter your message here"></textarea>
                     </div>
-                    <button type="button" data-dismiss="modal" class="btn my-btn btn-white text-uppercase">Close</button>
+                    <button type="button" data-dismiss="modal"
+                        class="btn my-btn btn-white text-uppercase">Close</button>
                     <button type="submit" class="btn my-btn text-uppercase">Send</button>
 
                 </form>
@@ -157,7 +160,12 @@
                 }
             }
         });
-
+        $('.btn-clear').click(function(e) {
+            e.preventDefault();
+            $('#organisation').val('');
+            $('#location').val('');
+            window.location.href = '/users';
+        });
         $('#user_id').change(function() {
             window.location.href = '/users/' + $(this).find(':selected').val();
         });
