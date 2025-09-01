@@ -39,8 +39,8 @@ class UserController extends Controller
         $users = User::when($request->get('status'), function ($q) use ($request) {
             return $q->where('status', $request->get('status'));
         })
-            ->when($request->input('organisation)'), function ($query) use ($request) {
-                return $query->where('organisation_id', $request->input('organisation'));
+            ->when($request->get('organisation)'), function ($query) use ($request) {
+                return $query->where('organisation_id', $request->get('organisation'));
             })
             ->when($request->get('location'), function ($q) use ($request) {
                 return $q->where('location', 'LIKE', '%' . $request->get('location') . '%');
