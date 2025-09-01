@@ -168,6 +168,7 @@
             $('#location').val('');
             $('#status').val('');
             $('#user_id').val('');
+            window.location.href = '/dashboard/users';
         });
         $('#user_id').change(function() {
             window.location.href = '/users/' + $(this).find(':selected').val();
