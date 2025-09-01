@@ -36,7 +36,7 @@
                         </div>
 
                     </div>
-                    
+
                 </div>
             </form>
 
@@ -101,8 +101,7 @@
                     <div class="form-group editor-div">
                         <textarea name="message" id="message" placeholder="Enter your message here"></textarea>
                     </div>
-                    <button type="button" data-dismiss="modal"
-                        class="btn my-btn btn-white text-uppercase">Close</button>
+                    <button type="button" data-dismiss="modal" class="btn my-btn btn-white text-uppercase">Close</button>
                     <button type="submit" class="btn my-btn text-uppercase">Send</button>
 
                 </form>

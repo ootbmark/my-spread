@@ -41,7 +41,7 @@ class UserController extends Controller
         })
             ->when($request->get('organisation)'), function ($query) use ($request) {
                 return $query->join('organisations', 'users.organisation_id', '=', 'organisations.id')
-                    ->where('organisations.name', $request->get('organisation'));
+                    ->where('organisations.name', 'LIKE', '%' . $request->get('organisation') . '%');
             })
             ->when($request->get('location'), function ($q) use ($request) {
                 return $q->where('location', 'LIKE', '%' . $request->get('location') . '%');
