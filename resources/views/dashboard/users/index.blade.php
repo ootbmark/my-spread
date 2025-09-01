@@ -22,17 +22,17 @@
 
                     <div class="flex-grow-1 d-flex" style="max-width: 900px">
                         <select name="user_id" id="user_id" class="form-control"></select>
-                        <div class="discussions-search position-relative flex-grow-1 mr-4 mb-2">
-                            <select name="organisation_id" id="organisation_id" class="form-control"
-                                onchange="$('#dashboard-filter-form').submit()"></select>
-                        </div>
+
                         <div class="discussions-search position-relative flex-grow-1 mb-2 ml-4">
                             <input type="text" name="location" id="location" class="form-control" placeholder="Location"
                                 value="{{ request()->get('location') }}">
                             <button type="submit" aria-label="search" class="btn"><span
                                     class="search-toggle"></span></button>
                         </div>
-
+                        <div class="discussions-search position-relative flex-grow-1 mr-4 mb-2">
+                            <select name="organisation" id="organisation_id" class="form-control"
+                                onchange="$('#dashboard-filter-form').submit()"></select>
+                        </div>
                     </div>
 
                 </div>
@@ -46,6 +46,7 @@
                             <th class="border-0">@sortablelink('first_name', 'NAME')</th>
                             <th class="border-0">@sortablelink('created_at', 'JOINED DATE')</th>
                             <th class="border-0">LOCATION</th>
+                            <th class="border-0">ORGANISATION</th>
                             <th class="border-0">STATUS</th>
                             <th class="border-0">ACTIONS</th>
                         </tr>
@@ -55,6 +56,7 @@
                                 <td><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></td>
                                 <td>{{ $user->created_at->format('d F Y') }}</td>
                                 <td>{{ $user->location }}</td>
+                                <td>{{ $user->organisation ? $user->organisation->name : 'No Organisation' }}</td>
                                 <td>{{ $user->status }}</td>
                                 <td class="action-buttons">
                                     <a href="{{ route('users.show', $user->id) }}" class="action-link action-link-blue"
