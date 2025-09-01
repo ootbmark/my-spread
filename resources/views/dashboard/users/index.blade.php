@@ -35,8 +35,9 @@
                                     class="search-toggle"></span></button>
                         </div>
                         <div class="flex-grow-1 mb-2 ml-4">
-                            <button class="btn btn-outline-danger btn-sm btn-clear w-100"><span
-                                    class="trash"></button>
+                            <button class="btn btn-outline-danger btn-sm btn-clear w-100">
+                                <i class="bi bi-trash"></i>
+                            </button>
                         </div>
                     </div>
 
