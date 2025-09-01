@@ -22,7 +22,12 @@
 
                     <div class="flex-grow-1 d-flex" style="max-width: 900px">
                         <select name="user_id" id="user_id" class="form-control"></select>
-
+                        <div class="discussions-search position-relative flex-grow-1 mb-2 ml-4">
+                            <input type="text" name="organisation" id="organisation" class="form-control"
+                                placeholder="Organisation" value="{{ request()->get('organisation') }}">
+                            <button type="submit" aria-label="search" class="btn"><span
+                                    class="search-toggle"></span></button>
+                        </div>
                         <div class="discussions-search position-relative flex-grow-1 mb-2 ml-4">
                             <input type="text" name="location" id="location" class="form-control" placeholder="Location"
                                 value="{{ request()->get('location') }}">
@@ -99,7 +104,8 @@
                     <div class="form-group editor-div">
                         <textarea name="message" id="message" placeholder="Enter your message here"></textarea>
                     </div>
-                    <button type="button" data-dismiss="modal" class="btn my-btn btn-white text-uppercase">Close</button>
+                    <button type="button" data-dismiss="modal"
+                        class="btn my-btn btn-white text-uppercase">Close</button>
                     <button type="submit" class="btn my-btn text-uppercase">Send</button>
 
                 </form>
