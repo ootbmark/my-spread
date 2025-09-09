@@ -37,25 +37,25 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $users = User::when($request->get('status'), function ($q) use ($request) {
-            return $q->where('status', $request->get('status'));
+            return $q->where('users.status', $request->get('status'));
         })
             ->when($request->get('organisation'), function ($query) use ($request) {
                 return $query->join('organisations', 'users.organisation_id', '=', 'organisations.id')
                     ->where('organisations.name', 'LIKE', '%' . $request->get('organisation') . '%');
             })
             ->when($request->get('location'), function ($q) use ($request) {
-                return $q->where('location', 'LIKE', '%' . $request->get('location') . '%');
-                //            ->orWhere(DB::raw('concat(first_name," ",last_name)'), 'like', '%'. $request->get('search') .'%');
-            })->when(
+                return $q->where('users.location', 'LIKE', '%' . $request->get('location') . '%');
+            })
+            ->when(
                 $request->get('not_verified') == 1,
                 function ($q) {
-                    return $q->whereNull('email_verified_at');
+                    return $q->whereNull('users.email_verified_at');
                 },
                 function ($q) {
-                    return $q->whereNotNull('email_verified_at');
+                    return $q->whereNotNull('users.email_verified_at');
                 }
             )
-            ->sortable(['id' => 'desc'])
+            ->sortable(['users.id' => 'desc'])
             ->paginate(m_per_page());
 
         return view('dashboard.users.index', compact('users'));
