@@ -107,17 +107,17 @@ class LoginController extends Controller
         $request->validate([
             'email' => 'required',
             'password' => 'required',
-            'g-recaptcha-response' => 'required|captcha',
+            /* 'g-recaptcha-response' => 'required|captcha', */
             'recaptcha_token' => 'required',
         ]);
         // ✅ Verify reCAPTCHA token
-        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+        /* $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
             'secret' => config('services.recaptcha.secret_key'),
             'response' => $request->recaptcha_token,
             'remoteip' => $request->ip(),
         ]);
 
-        $result = $response->json();
+        $result = $response->json(); */
 
         if (!($result['success'] ?? false) || ($result['score'] ?? 0) < 0.5 || ($result['action'] ?? '') !== 'login') {
             return back()->withErrors(['recaptcha' => 'reCAPTCHA verification failed.']);

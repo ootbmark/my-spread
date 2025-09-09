@@ -50,8 +50,8 @@
                 </div>
                 <div class="col-md-9 col-lg-7 offset-md-3 pl-lg-2 pl-0 pr-0 form-group d-flex">
                     <div>
-                        <input type="hidden" name="recaptcha_token" id="recaptcha_token">
-                        {{--   {!! NoCaptcha::display() !!} --}}
+                        {{--  <input type="hidden" name="recaptcha_token" id="recaptcha_token"> --}}
+                        {!! NoCaptcha::display() !!}
                     </div>
                     <br>
 
@@ -67,18 +67,7 @@
                     <a href="{{ route('register') }}" class="link-3 mb-3 no-wrap d-inline-block">Create an account</a>
                 </div>
             </form>
-            {{-- {!! NoCaptcha::renderJs() !!} --}}
+            {!! NoCaptcha::renderJs() !!}
         </div>
     </div>
-    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
-    <script>
-        grecaptcha.ready(function() {
-            grecaptcha.execute("{{ config('services.recaptcha.site_key') }}", {
-                    action: 'login'
-                })
-                .then(function(token) {
-                    document.getElementById('recaptcha_token').value = token;
-                });
-        });
-    </script>
 @endsection
