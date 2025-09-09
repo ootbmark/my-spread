@@ -37,12 +37,16 @@ return [
         'redirect' => env('LINKEDIN_URL'),
         'redirect_code' => env('LINKEDIN_CODE_URL'),
         'id' => 'V7fZKXYarm',
-//        'id' => 'VicKyiOTqa',
+        //        'id' => 'VicKyiOTqa',
         'token' => 'AQUCza2zqDuoJbstt3la7s6IYgoT2yDefUA08xdDO-dtsqZH687hiT6IYyjpUQxIw4y2v4gNIeQuYk_FSTqIVZ_H8CsUX5gXM7P4tSynoXPu48I7gvVUgNTQzRw5FTRTnkLPOwjmRLiFBeIL4msosK7Ysi5s5OsWb8Qk7Srgrxkg3F7JjJDgOACDDMeWZW95EUHO3G5tScHliFAM2ON8k-6MgWxwCFNaIFb4wpxaRRv9y0wUiVpI2QFB3le5qBHGK0OLlV9MiE9jy2-xPMJsTWlNBstqa-b09IqPRKMEh3a6W65qM7LD3fLvq4LRMrsdC86MG5O4qHTUjBjmvm8NeGrpnDX98g',
     ],
 
     'sparkpost' => [
         'secret' => env('SPARKPOST_SECRET')
+    ],
+    'recaptcha' => [
+        'site_key' => env('RECAPTCHA_SITE_KEY'),
+        'secret_key' => env('RECAPTCHA_SECRET_KEY'),
     ],
 
 
