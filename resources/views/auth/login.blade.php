@@ -50,7 +50,6 @@
                 </div>
                 <div class="col-md-9 col-lg-7 offset-md-3 pl-lg-2 pl-0 pr-0 form-group d-flex">
                     <div>
-                        {{--  <input type="hidden" name="recaptcha_token" id="recaptcha_token"> --}}
                         {!! NoCaptcha::display() !!}
                     </div>
                     <br>

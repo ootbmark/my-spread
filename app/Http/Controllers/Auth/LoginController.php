@@ -9,7 +9,6 @@ use http\Client\Curl\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 
 class LoginController extends Controller
 {
@@ -108,20 +107,7 @@ class LoginController extends Controller
             'email' => 'required',
             'password' => 'required',
             'g-recaptcha-response' => 'required|captcha',
-            /*   'recaptcha_token' => 'required', */
         ]);
-        // ✅ Verify reCAPTCHA token
-        /* $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-            'secret' => config('services.recaptcha.secret_key'),
-            'response' => $request->recaptcha_token,
-            'remoteip' => $request->ip(),
-        ]);
-
-        $result = $response->json(); */
-
-        if (!($result['success'] ?? false) || ($result['score'] ?? 0) < 0.5 || ($result['action'] ?? '') !== 'login') {
-            return back()->withErrors(['recaptcha' => 'reCAPTCHA verification failed.']);
-        }
         //$this->validateLogin($request);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
