@@ -67,7 +67,7 @@
                     <a href="{{ route('register') }}" class="link-3 mb-3 no-wrap d-inline-block">Create an account</a>
                 </div>
             </form>
-            {!! NoCaptcha::renderJs() !!}
+            {{-- {!! NoCaptcha::renderJs() !!} --}}
         </div>
     </div>
 @endsection
