@@ -108,7 +108,7 @@ class LoginController extends Controller
             'email' => 'required',
             'password' => 'required',
             'g-recaptcha-response' => 'required|captcha',
-            'recaptcha_token' => 'required',
+          /*   'recaptcha_token' => 'required', */
         ]);
         // ✅ Verify reCAPTCHA token
         /* $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
