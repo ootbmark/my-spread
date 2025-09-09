@@ -107,7 +107,7 @@ class LoginController extends Controller
         $request->validate([
             'email' => 'required',
             'password' => 'required',
-            /* 'g-recaptcha-response' => 'required|captcha', */
+            'g-recaptcha-response' => 'required|captcha',
             'recaptcha_token' => 'required',
         ]);
         // ✅ Verify reCAPTCHA token
