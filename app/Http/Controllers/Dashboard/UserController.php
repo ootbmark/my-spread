@@ -37,7 +37,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $users = User::when($request->get('status'), function ($q) use ($request) {
-            return $q->where('status', $request->get('status'));
+            return $q->where('users.status', $request->get('status'));
         })
             ->when($request->get('organisation'), function ($query) use ($request) {
                 return $query->join('organisations', 'users.organisation_id', '=', 'organisations.id')
